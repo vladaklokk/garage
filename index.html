@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="output"></div>
+    <div class="filter-container">
+        <select id="sortOptions">
+            <option value="all">All Cars</option>
+            <option value="number">Number of Cars</option>
+            <option value="price">Cars by Price</option>
+            <option value="year">Cars by Year</option>
+            <option value="run">Cars by Run</option>
+        </select>
+        <button onclick="applyFilters()">Apply Filters</button>
+        <button title="display all cars" onclick="displayAllCars()">All Cars</button>
+        <button title="add a new aar" onclick="addCar()">Add Car</button>
+        <button title="delete a car" onclick="promptToDeleteCar()">Delete Car</button>
+
+    </div>
+    <div id="carContainer"></div>
+
+    <script src="./main2.js"></script>
+</body>
+
+</html>
