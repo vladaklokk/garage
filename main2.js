@@ -27,6 +27,7 @@ function displayCars(cars) {
     });
 }
 
+
 function applyFilters() {
     const sortOption = document.getElementById('sortOptions').value;
 
@@ -46,10 +47,28 @@ function applyFilters() {
         case 'run':
             displayCarsByRun();
             break;
+        case 'cheapestFirst':
+            displayCheapestFirst();
+            break;
+        case 'newestFirst':
+            displayNewestFirst();
+            break;
+        case 'lowestRunFirst':
+            displayLowestRunFirst();
+            break;
+        case 'inGarage':
+            displayCarsInGarage();
+            break;
+        case 'notInGarage':
+            displayCarsNotInGarage();
+            break;
         default:
             console.log('Invalid option');
     }
 }
+
+
+
 
 function displayAllCars() {
     console.log("All Cars:");
@@ -107,6 +126,49 @@ function deleteCar(index) {
 function promptToDeleteCar() {
     const indexToDelete = prompt("Enter the index of the car to delete:");
     deleteCar(indexToDelete);
+}
+
+function checkCarByIndex() {
+    const index = parseInt(prompt("Enter the index of the car:"));
+
+    if (!isNaN(index) && index >= 0 && index < garage.length) {
+        const carName = `${garage[index].name} ${garage[index].model} - ${garage[index].productionYear}`;
+        const isInGarage = index % 2 === 0 ? 'in garage' : 'not in garage';
+        const message = `The car "${carName}" is ${isInGarage}.`;
+
+        alert(message);
+    } else {
+        alert('Invalid index');
+    }
+}
+
+
+
+function displayCheapestFirst() {
+    const sortedCars = garage.slice().sort((a, b) => a.price - b.price);
+    displayCars(sortedCars);
+}
+
+function displayNewestFirst() {
+    const sortedCars = garage.slice().sort((a, b) => b.productionYear - a.productionYear);
+    displayCars(sortedCars);
+}
+
+function  displayLowestRunFirst() {
+    const sortedCars = garage.slice().sort((a, b) => a.run - b.run);
+    displayCars(sortedCars);
+}
+
+function displayCarsInGarage() {
+    console.log("Cars in Garage:");
+    const carsInGarage = garage.filter((car, index) => index % 2 === 0);
+    displayCars(carsInGarage);
+}
+
+function displayCarsNotInGarage() {
+    console.log("Cars not in Garage:");
+    const carsNotInGarage = garage.filter((car, index) => index % 2 !== 0);
+    displayCars(carsNotInGarage);
 }
 
 

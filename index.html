@@ -13,15 +13,22 @@
     <div class="filter-container">
         <select id="sortOptions">
             <option value="all">All Cars</option>
-            <option value="number">Number of Cars</option>
-            <option value="price">Cars by Price</option>
-            <option value="year">Cars by Year</option>
-            <option value="run">Cars by Run</option>
+            <option value="number">Number of cars</option>
+            <option value="price">Cars by price</option>
+            <option value="year">Cars by year</option>
+            <option value="run">Cars by run</option>
+            <option value="cheapestFirst">Cheapest first</option>
+            <option value="newestFirst">Newest first</option>
+            <option value="lowestRunFirst">Lowest run first</option>
+            <option value="inGarage">In garage</option>
+            <option value="notInGarage">Not in garage</option>
         </select>
-        <button onclick="applyFilters()">Apply Filters</button>
-        <button title="display all cars" onclick="displayAllCars()">All Cars</button>
-        <button title="add a new aar" onclick="addCar()">Add Car</button>
-        <button title="delete a car" onclick="promptToDeleteCar()">Delete Car</button>
+        <button onclick="applyFilters()">Apply filters</button>
+        <button title="display all cars" onclick="displayAllCars()">All cars</button>
+        <button title="add a new aar" onclick="addCar()">Add car</button>
+        <button title="delete a car" onclick="promptToDeleteCar()">Delete car</button>
+        <button id="resultContainer" onclick="checkCarByIndex()">Car is in the garage or not?</button>
+
 
     </div>
     <div id="carContainer"></div>
